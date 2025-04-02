@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class SwalayanMain {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Pelanggan pelanggan = new Pelanggan("5612345678", "Budi", 500000, "1234");
+
+        while (true) {
+            System.out.println("\n1. Top Up");
+            System.out.println("2. Pembelian");
+            System.out.println("3. Keluar");
+            System.out.print("Pilih menu: ");
+            int pilihan = scanner.nextInt();
+            
+            if (pilihan == 3) {
+                break;
+            }
+
+            System.out.print("Masukkan PIN: ");
+            String pinInput = scanner.next();
+
+            if (pilihan == 1) {
+                System.out.print("Masukkan jumlah top up: ");
+                double jumlah = scanner.nextDouble();
+                pelanggan.topUp(jumlah, pinInput);
+            } else if (pilihan == 2) {
+                System.out.print("Masukkan jumlah pembelian: ");
+                double jumlah = scanner.nextDouble();
+                pelanggan.beli(jumlah, pinInput);
+            }
+        }
+
+    }
+}
